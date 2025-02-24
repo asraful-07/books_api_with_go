@@ -103,7 +103,12 @@ body {
     font-size: 2.5rem;
   }
 
+  /* Two cards per row on smaller screens */
+  .cards {
+    grid-template-columns: repeat(2, 1fr); /* Two cards in each row */
+  }
+
   .card.green {
-    grid-column: span 1;
+    grid-column: span 1; /* Green card now spans 1 column on smaller screens */
   }
 }
