@@ -96,19 +96,22 @@ body {
 /* Responsive Text Size */
 @media (max-width: 768px) {
   .section-title {
-    font-size: 1rem;
+    font-size: 2rem;
   }
-
   .number {
-    font-size: 0.5rem;
+    font-size: 1.5rem;
   }
-
   /* Two cards per row on smaller screens */
   .cards {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .card.green {
+  .card {
+    width: 80%;
+  }
+  .card.green,
+  .card .center {
     grid-column: span 1;
+    width: 80%;
+    height: 90%;
   }
 }
