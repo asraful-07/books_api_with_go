@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "books/cmd"
 
 func main() {
-	fmt.Println("hello word")
+	cmd.Serve()
 }
