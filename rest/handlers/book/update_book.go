@@ -52,7 +52,7 @@ func (h *Handler) UpdateBook(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if book == nil {
-		utils.SendError(w, http.StatusNotFound, "Not found")
+		utils.SendError(w, http.StatusNotFound, "Book not found")
 	}
 
 	utils.SendData(w, book, http.StatusCreated)

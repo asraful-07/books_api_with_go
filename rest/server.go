@@ -3,6 +3,7 @@ package rest
 import (
 	"books/config"
 	"books/rest/handlers/book"
+	"books/rest/handlers/reviews"
 	"fmt"
 	"log"
 	"net/http"
@@ -12,12 +13,14 @@ import (
 type Server struct {
 	cfg            *config.Config
 	bookHandler    *book.Handler
+	reviewsHandler *reviews.Handler
 }
 
-func NewServer(cfg *config.Config, bookHandler *book.Handler) *Server {
+func NewServer(cfg *config.Config, bookHandler *book.Handler, reviewsHandler *reviews.Handler) *Server {
 	return &Server{
 		cfg:         cfg,
         bookHandler: bookHandler,
+		reviewsHandler: reviewsHandler,
 	}
 }
 

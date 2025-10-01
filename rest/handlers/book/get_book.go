@@ -21,5 +21,11 @@ func (h *Handler) GetBookById(w http.ResponseWriter, r *http.Request) {
 		utils.SendError(w, http.StatusInternalServerError, "Internal server error")
 		return
 	}
+
+	if book == nil {
+		utils.SendError(w, http.StatusNotFound, "Book not found")
+		return
+	}
+	
 	utils.SendData(w, book, http.StatusOK)
 }

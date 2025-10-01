@@ -7,6 +7,8 @@ import (
 	"books/repo"
 	"books/rest"
 	bookHandler "books/rest/handlers/book"
+	reviewHAndler "books/rest/handlers/reviews"
+	"books/review"
 	"fmt"
 	"os"
 )
@@ -22,14 +24,17 @@ func Serve() {
 
 	// repos
 	booksRepo := repo.NewBooksRepo(dbCon)
+	reviewRepo := repo.NewReviewRepo(dbCon)
 
 	// domains
-	btkSvc := book.NewService(booksRepo)
+	bokSvc := book.NewService(booksRepo)
+	rvwSvc := review.NewService(reviewRepo)
 
 	// handlers
-	booksHandler := bookHandler.NewHandler(btkSvc)
+	booksHandler := bookHandler.NewHandler(bokSvc)
+	reviewsHandler := reviewHAndler.NewHandler(rvwSvc)
 
 	// start sever
-	server := rest.NewServer(cfg, booksHandler)
+	server := rest.NewServer(cfg, booksHandler, reviewsHandler)
 	server.Start()
 }
