@@ -22,7 +22,6 @@ func NewBooksRepo(db *sqlx.DB) BookRepo {
 	return &bookRepo{db: db}
 }
 
-
 func (r *bookRepo) Create(b domain.Book) (*domain.Book, error) {
 	query := `
 	INSERT INTO books (title, pot, image, quantity, price, description)
@@ -78,7 +77,6 @@ func (r *bookRepo) Get(bookId int) (*domain.Book, error) {
 	}
 	return &book, err
 }
-
 
 func (r *bookRepo) Update(b domain.Book) (*domain.Book, error) {
 	query := `
