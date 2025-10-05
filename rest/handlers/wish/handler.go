@@ -1,4 +1,4 @@
-package reviews
+package wish
 
 type Handler struct {
 	svc Service
