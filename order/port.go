@@ -11,8 +11,8 @@ type Service interface {
 
 type OrderRepo interface {
 	Create(order domain.Order) (*domain.Order, error)
-	// Get(bookId int) (*domain.Review, error)
-	// List() ([]*domain.Review, error)
-	// Update(b domain.Review)  (*domain.Review, error)
-	// Delete(bookId int) error
+	Get(id int) (*domain.Order, error)
+	List() ([]*domain.Order, error)
+	Update(o domain.Order) (*domain.Order, error)
+	Delete(id int) error
 }
