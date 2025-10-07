@@ -9,8 +9,10 @@ import (
 	"books/rest"
 	bookHandler "books/rest/handlers/book"
 	orderHandler "books/rest/handlers/order"
-	reviewHAndler "books/rest/handlers/reviews"
+	reviewHandler "books/rest/handlers/reviews"
+	wishHandler "books/rest/handlers/wish"
 	"books/review"
+	"books/wish"
 	"fmt"
 	"os"
 )
@@ -28,18 +30,21 @@ func Serve() {
 	booksRepo := repo.NewBooksRepo(dbCon)
 	reviewRepo := repo.NewReviewRepo(dbCon)
 	orderRepo := repo.NewOrderRepo(dbCon)
+	wishRepo := repo.NewWishRepo(dbCon)
 
 	// domains
 	bokSvc := book.NewService(booksRepo)
 	rvwSvc := review.NewService(reviewRepo)
 	ordSvc := order.NewService(orderRepo)
+	wihSvc := wish.NewService(wishRepo) 
 
 	// handlers
 	booksHandler := bookHandler.NewHandler(bokSvc)
-	reviewsHandler := reviewHAndler.NewHandler(rvwSvc)
+	reviewsHandler := reviewHandler.NewHandler(rvwSvc)
 	ordersHandler := orderHandler.NewHandler(ordSvc)
+	wishesHandler := wishHandler.NewHandler(wihSvc)
 
 	// start sever
-	server := rest.NewServer(cfg, booksHandler, reviewsHandler, ordersHandler)
+	server := rest.NewServer(cfg, booksHandler, reviewsHandler, ordersHandler, wishesHandler)
 	server.Start()
 }
