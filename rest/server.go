@@ -5,6 +5,7 @@ import (
 	"books/rest/handlers/book"
 	"books/rest/handlers/order"
 	"books/rest/handlers/reviews"
+	"books/rest/handlers/wish"
 	"fmt"
 	"log"
 	"net/http"
@@ -16,18 +17,21 @@ type Server struct {
 	bookHandler    *book.Handler
 	reviewsHandler *reviews.Handler
 	ordersHandler  *order.Handler
+	wishesHandler  *wish.Handler 
 }
 
 func NewServer(
 	cfg *config.Config,
 	bookHandler *book.Handler, 
 	reviewsHandler *reviews.Handler,
-    ordersHandler  *order.Handler) *Server {
+    ordersHandler  *order.Handler,
+	wishesHandler  *wish.Handler ) *Server {
 	return &Server{
 		cfg:         cfg,
         bookHandler: bookHandler,
 		reviewsHandler: reviewsHandler,
 		ordersHandler: ordersHandler,
+		wishesHandler: wishesHandler,
 	}
 }
 
