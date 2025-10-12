@@ -17,7 +17,6 @@ import (
 	"os"
 )
 
-// server file
 func Serve() {
 	cfg := config.GetConfig()
 
