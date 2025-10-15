@@ -1,8 +1,6 @@
 package review
 
-import (
-	"books/domain"
-)
+import "books/domain"
 
 type service struct {
 	reviewRepo ReviewRepo
@@ -14,22 +12,22 @@ func NewService(reviewRepo ReviewRepo) Service {
 	}
 }
 
-func (svc *service) Create(review domain.Review) (*domain.Review, error) {
-	return svc.reviewRepo.Create(review)
+func (svc *service) Create(r domain.Review) (*domain.Review, error) {
+	return svc.reviewRepo.Create(r)
 }
 
-// func (svc *service) Get(id int) (*domain.Book, error) {
-// 	return svc.reviewRepo.Get(id)
-// }
+func (svc *service) Get(id int) (*domain.Review, error) {
+	return svc.reviewRepo.Get(id)
+}
 
-// func (svc *service) List() ([]*domain.Book, error) {
-// 	return svc.reviewRepo.List()
-// }
+func (svc *service) 	List() ([]*domain.Review, error) {
+	return svc.reviewRepo.List()
+}
 
-// func (svc *service) Update(book domain.Book) (*domain.Book, error) {
-// 	return svc.reviewRepo.Update(book)
-// }
+func (svc *service) Update(r domain.Review) (*domain.Review, error) {
+	return svc.reviewRepo.Update(r)
+}
 
-// func (svc *service) Delete(id int) error {
-// 	return svc.reviewRepo.Delete(id)
-// }
+func (svc *service) Delete(reviewID int) error {
+	return svc.reviewRepo.Delete(reviewID)
+}

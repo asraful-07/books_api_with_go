@@ -10,9 +10,9 @@ type Service interface {
 }
 
 type ReviewRepo interface {
-	Create(b domain.Review) (*domain.Review, error)
-	// Get(bookId int) (*domain.Review, error)
-	// List() ([]*domain.Review, error)
-	// Update(b domain.Review)  (*domain.Review, error)
-	// Delete(bookId int) error
+	Create(r domain.Review) (*domain.Review, error)
+	Get(id int) (*domain.Review, error)
+	List() ([]*domain.Review, error)
+	Update(r domain.Review) (*domain.Review, error)
+	Delete(reviewID int) error
 }
