@@ -39,7 +39,10 @@ func (server *Server) Start() {
 	mux := http.NewServeMux()
 
 	// Route registration
-	server.bookHandler.RegisterRoutes(mux)
+	server.bookHandler.RegisterRoutes(mux);
+	server.reviewsHandler.RegisterRoutes(mux);
+	server.ordersHandler.RegisterRoutes(mux);
+	server.wishesHandler.RegisterRoutes(mux);
 
 	//type casting (inter to string)
 	addr := ":" + strconv.Itoa(int(server.cfg.HttpPort))
